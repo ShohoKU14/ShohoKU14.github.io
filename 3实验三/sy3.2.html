@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sy3.2</title>
+    <style type="text/css">
+        *{font-family: 宋体;}
+        .page{margin: 0 auto;
+            width: 550px;
+            border: solid 2px lightskyblue;
+            padding: 14px;
+            position: relative}
+        .page*{margin: 0;padding: 0}
+        .page.content{padding: 5px}
+        .page.frm_cont{margin-bottom: 8px}
+        .page.username input,.page.password input,.page.email input{
+            width: 180px;
+            height: 18px;
+            border: solid 2px lightskyblue;
+            margin-bottom: 8px;
+        }
+        .page.btns{text-align: center;}
+        legend{color: lightskyblue;}
+        fieldset{border: solid 2px lightskyblue}
+        span{border: solid 2px;}
+        .word{border: none;font-size: 10px}
+        h4{color: lightskyblue;font-weight: bolder}
+        h5{color: lightskyblue;}
+        h5:before{font-size: 15px;color:deepskyblue;content: "您的电子邮箱不会被公布出去，但必须填写。";font-weight: bolder;}
+    </style>
+</head>
+<body>
+    <div class="page">
+        <h3>已注册用户登录</h3>
+    <fieldset>
+        <legend>
+            <span>&nbsp;&nbsp;用户登录&nbsp;&nbsp;</span>
+        </legend>
+        <div class="content">
+        <form action=""method="post"class="page_form">
+            <div class="frm_cont username"style="margin-left: 115px;margin-bottom: 10px">用户名
+                <label for="username"></label>
+                <input type="text"name="username"id="username"/>
+            </div>
+            <div class="frm_cont password"style="margin-left: 130px;margin-bottom: 10px">密码
+                <label for="password"></label>
+                <input type="password"name="password"id="password"/>
+            </div>
+            <div class="btns"style="margin-left: 100px;margin-bottom: 7px">
+                <input type="checkbox"name="terms"/>
+                <span style="border: none;color: lightskyblue;font-size: 12px;">记住我</span>
+                <input type="submit"name="button1"id="button1"value="&nbsp;登录&nbsp;"style="background-color: lightskyblue;border: 1px solid blue"/>
+            </div>
+            <span align="left"style="color: lightskyblue;border: none;font-size: 15px">您忘记密码？</span>
+        </form>
+        </div>
+    </fieldset>
+        <h3>未注册创建用户</h3>
+        <fieldset>
+            <legend>
+                <span>&nbsp;&nbsp;用户注册&nbsp;&nbsp;</span>
+            </legend>
+                <h5 style="font-size: 13px">在您注册之前请认真阅读服务条款。</h5>
+            <div class="content">
+            <form action=""method="post">
+                <div class="frm_cont username"style="margin-left:115px;margin-bottom: 10px">用户名
+                    <label for="username2"></label>
+                    <input type="text"name="username2"id="username2"/><span class="word">*(最多30个字符)</span>
+                </div>
+                <div class="frm_cont email"style="margin-left: 100px;margin-bottom: 10px">电子邮箱
+                    <label for="email"></label>
+                    <input type="text"name="email"id="email"><span class="word">*</span>
+                </div>
+                <div class="password"style="margin-left: 132px;margin-bottom: 10px">密码
+                    <label for="password2"></label>
+                    <input type="password"name="password2"id="password2"size="15"/><span class="word">*(最多15个字符)</span>
+                </div>
+                <div class="frm_cont password"style="margin-left: 100px;margin-bottom: 10px">重复密码
+                    <label for="password3"></label>
+                    <input type="password"name="password"id="password3"size="15"/><span class="word">*</span>
+                </div>
+                <div style="margin-left: 57px;margin-bottom: 10px">
+                    同意服务条款&nbsp;<input type="checkbox"name="Agree"value="同意条款"/>
+                    <span style="border: none;color: lightskyblue;font-size: 12px">先看看条款？</span><span class="word">*</span>
+                </div>
+                <div align="center"style="margin-bottom: 10px">
+                <input type="submit"name="Submit"value="&nbsp;提交&nbsp;"style="border: 1px solid blue;background-color: lightskyblue"/>&nbsp;
+                <input type="reset"name="Reset"value="&nbsp;重置&nbsp;"style="border: 1px solid blue;background-color: lightskyblue"/>
+                </div>
+                <div align="left"style="color: lightskyblue;font-weight: bolder">
+                    *在提交您的注册信息时，我们认为您已经同意了我们的服务条款。
+                </div>
+                <div align="left"style="color:lightskyblue;font-weight: bolder">
+                    *这些条款可能在未经您的同意的时候进行修改。
+                </div>
+            </form>
+            </div>
+        </fieldset>
+    </div>
+</body>
+</html>
