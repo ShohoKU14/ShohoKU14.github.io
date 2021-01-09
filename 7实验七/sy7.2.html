@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8>
+    <title>时钟的显示</title>
+</head>
+<body style="color:green; background-repeat: no-repeat; background-attachment:fixed">
+<div style="width: 900px; height: 900px; ">
+    <div style="position: absolute; left:165px;top: 175px; width: 900px; height: 900px;
+background-image:url('clock2.png'); background-repeat: no-repeat; z-index: -1;">
+    </div>
+    <canvas id="t" width="600" height="600"></canvas>
+
+</div>
+<script language="javascript">
+    var s = setInterval(moveI, 1000);
+    function moveI() {
+        var c = document.getElementById("t");
+        var pc = c.getContext("2d");
+        c.height = c.height;
+        //秒
+        pc.lineWidth = 3;
+        pc.strokeStyle = 'rgba(255,0,0,0.8)';
+        var now = new Date();
+        var sindex = getxy(150, now.getSeconds());
+        pc.moveTo(400, 400);
+        pc.lineTo(sindex.x, sindex.y);
+        pc.stroke();
+        pc.beginPath();
+        //分
+        pc.lineWidth = 7;
+        pc.strokeStyle = 'rgba(50,50,50,0.8)';
+        var mindex = getxy(120, now.getMinutes() + (now.getSeconds() / 60));
+        pc.moveTo(400, 400);
+        pc.lineTo(mindex.x, mindex.y);
+        pc.stroke();
+        pc.beginPath();
+        //时
+        pc.lineWidth = 10;
+        pc.strokeStyle = 'rgba(0,0,0,0.8)';
+        var hindex = getxy(80, ((now.getHours() > 12 ? now.getHours() - 12 :
+            now.getHours()) + (now.getMinutes() / 60)) * 5);
+        pc.moveTo(400, 400);
+        pc.lineTo(hindex.x, hindex.y);
+        pc.stroke();
+    };
+    function getxy(r, t) {
+        //计算分区 0,1,2,3
+        var a = parseInt(t / 15);
+        //分区角度
+        t = t - 15 * a;
+        var y;
+        var x;
+        //基于分区的坐标计算
+        switch (a) {
+            case 0:
+                y = r - (r * Math.cos(2 * Math.PI / 360 * 90 * (t / 15)));
+                x = r + (r * Math.sin(2 * Math.PI / 360 * 90 * (t / 15)));
+                break;
+            case 1:
+                y = r + (r * Math.sin(2 * Math.PI / 360 * 90 * (t / 15)));
+                x = r + (r * Math.cos(2 * Math.PI / 360 * 90 * (t / 15)));
+                break;
+            case 2:
+                y = r + (r * Math.cos(2 * Math.PI / 360 * 90 * (t / 15)));
+                x = r - (r * Math.sin(2 * Math.PI / 360 * 90 * (t / 15)));
+                break;
+            case 3:
+                y = r - (r * Math.sin(2 * Math.PI / 360 * 90 * (t / 15)));
+                x = r - (r * Math.cos(2 * Math.PI / 360 * 90 * (t / 15)));
+                break;
+            default:
+                break;
+        }
+        y = (400 - r) + y;
+        x = (400 - r) + x;
+        return {
+            'x': x,
+            'y': y
+        };
+    };
+</script>
+</body>
+</html>
